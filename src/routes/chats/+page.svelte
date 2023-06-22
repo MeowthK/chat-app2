@@ -2,9 +2,7 @@
     import { onMount } from "svelte"
     import Pusher from "pusher-js"
 
-	const usernames = [ "Ronzerwa", "BookJean", "Twitternage", "Plugbital", "Booklith", "ChooseYes", "Bufferix", "Mystor", "UnowBobo", "SimplyMc", "Skatech", "EatInstant", "HopeNotice", "Atergibb", "Clarette", "Dyhoodno", "Chiriya", "Lummotm", "Munewman", "FallsFan", "Camopaq", "Novasse", "Paradorld", "Broadcastar", "FireNeat", "ManiakChick", "LastingTman", "Shadefi", "RelaxZest", "FreeMax", "Darity", "Gametros", "ThereActually", "MidnightCyber", "Softpany", "Attabra" ]
-
-	export let username = usernames[parseInt(Math.random() * (usernames.length - 1) + "")]
+	let username = ''
 	let chat = ''
 	/**
      * @type {any[]}
@@ -47,7 +45,7 @@
 
 <main>
 	<div class="container mt-2">
-		<h6 class="mt-2 mb-2">{username}</h6>
+		<h6 class="mt-2 mb-2">Chat History</h6>
 		<div>
 			{#each chats as chat_inner}
 				<div class="card mt-1 mb-1 p-3">
@@ -58,6 +56,7 @@
 		</div>
 		<form class="d-flex" on:submit|preventDefault={submit}>
 			<input class="form-control flex-grow-1 me-1" placeholder="Write message" bind:value={chat}/>
+			<input class="form-control w-25 me-1" placeholder="Send as..." bind:value={username}/>
 			<button class="btn btn-primary" type="submit">Send</button>
 		</form>
 	</div>
