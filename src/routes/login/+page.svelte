@@ -6,8 +6,16 @@
 
     const submit = async () => {
         try {
-            const e = await dbhelper.login({username, password})
-            //console.log(e)
+            const authenticated = await dbhelper.login({username, password})
+            
+            if (authenticated) {
+                alert(`Welcome back, ${username}!`)
+                location.href = '/chats'
+                return
+            }
+
+            alert("Incorrect username and/or password.")
+
         } catch (e) {
             console.log({error: e})
         }

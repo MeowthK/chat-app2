@@ -38,9 +38,9 @@ app.post('/api/register', async (req, res) => {
   res.json(savedUser)
 })
 
-app.get('/api/login/', async (req, res) => {
-  const [user] = await User.find({ "username": req.body.username, "password": req.body.password })
-  res.json({_id: user.id})
+app.post('/api/login', async (req, res) => {
+  const exists = await User.findOne({ username: req.body.username, password: req.body.password })
+  res.json(exists)
 })
 
 mongoose.connect(process.env.DB_CONSTRING, { useNewUrlParser: true })
