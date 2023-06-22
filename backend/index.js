@@ -20,9 +20,12 @@ app.use(cors())
 app.use(express.json())
 
 app.post('/api/chats', async (req, res) => {
+    const {username, chat, timestamp} = req.body
+
     await pusher.trigger("chat-channel", "chat", {
-        username: req.body.username,
-        chat: req.body.chat
+        username: username,
+        chat: chat,
+        timestamp: timestamp
     })
 
     res.status(200).json({message: "/api/chats/ POST success."})
@@ -39,7 +42,8 @@ app.post('/api/register', async (req, res) => {
 })
 
 app.post('/api/login', async (req, res) => {
-  const exists = await User.findOne({ username: req.body.username, password: req.body.password })
+  const {username, password} = req.body
+  const exists = await User.findOne({ username: username, password: password })
   res.json(exists)
 })
 

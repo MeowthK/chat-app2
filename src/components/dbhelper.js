@@ -10,6 +10,10 @@ const login = async (/** @type {any} */ userData) => {
     return (await axios.post(URL + '/api/login', userData)).data !== null
 }
 
-const dbhelper = { register, login }
+const getChats = async (userData) => {
+    return await axios.post(URL + '/api/chats', userData)
+}
+
+const dbhelper = { register, login, getChats }
 
 export default dbhelper

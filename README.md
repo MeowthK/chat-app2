@@ -10,6 +10,10 @@ If you're seeing this, you've probably already done this step. Congrats!
 # create a new project in your desired directory
 npm create svelte@latest chat-app2
 
+Svelte App Template: Skeleton Project
+Type Checking: Typescrypt syntax
+Optional: Eslint
+
 # cd to newly created project directory
 cd chat-app2
 

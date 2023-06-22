@@ -7,7 +7,7 @@
     const submit = async () => {
         try {
             await dbhelper.register({username, password})
-            
+
             alert("Successfully registered! Please log in to continue.")
             location.href = '/login'
         } catch (e) {

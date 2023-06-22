@@ -10,7 +10,7 @@
             
             if (authenticated) {
                 alert(`Welcome back, ${username}!`)
-                location.href = '/chats'
+                location.href = `/chats/${username}`
                 return
             }
 
